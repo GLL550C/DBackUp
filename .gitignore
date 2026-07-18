@@ -1,0 +1,15 @@
+# 编译产物
+db-backup-tool
+db-backup-tool.exe
+db-backup-tool-linux
+db-backup-tool-linux-arm64
+db-backup-tool-mac
+
+# 运行时数据目录（数据库、备份文件等）
+data/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo

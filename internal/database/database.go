@@ -19,7 +19,7 @@ func Init(dataDir string) error {
 	var initErr error
 	once.Do(func() {
 		os.MkdirAll(dataDir, 0755)
-		dbPath := filepath.Join(dataDir, "backup_tool.db")
+		dbPath := filepath.Join(dataDir, "main.db")
 		d, err := sql.Open("sqlite", dbPath+"?_journal_mode=WAL&_foreign_keys=on")
 		if err != nil {
 			initErr = fmt.Errorf("打开数据库失败: %w", err)

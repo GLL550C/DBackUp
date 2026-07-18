@@ -99,11 +99,10 @@
 │       └── js/app.js        # 前端逻辑（原生 JS，无框架依赖）
 │
 ├── db/
-│   ├── schema.sql           # 完整表结构文档
-│   └── migrations.sql       # 迁移历史记录
+│   └── init.sql              # 数据库初始化脚本（唯一 SQL 维护文件）
 │
 └── data/                    # 运行时数据目录（自动创建）
-    └── backup_tool.db       # SQLite 数据库文件
+    └── main.db              # SQLite 数据库文件
 ```
 
 ### 技术栈
