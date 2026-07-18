@@ -192,7 +192,7 @@ server:
     port: 8080              # Web 服务端口
 
 backup:
-    default_dir: /opt/gll   # 默认备份目录（任务未指定时使用）
+    default_dir: /opt/databases   # 默认备份目录（任务未指定时使用）
 
 logging:
     retention_days: 30      # 日志保留天数

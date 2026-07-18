@@ -1,7 +1,7 @@
 server:
     port: 8080
 backup:
-    default_dir: /opt/gll
+    default_dir: /opt/databases
 logging:
     retention_days: 30
 auth:
