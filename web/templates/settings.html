@@ -1,0 +1,23 @@
+{{define "settings_content"}}
+<div class="card">
+    <div class="card-header"><h3>系统设置</h3></div>
+    <div class="card-body">
+        <div class="form-group">
+            <label>服务端口</label>
+            <input type="number" class="form-control" id="setting-port" value="8080" style="max-width:240px;">
+            <small>修改后需重启服务生效</small>
+        </div>
+        <div class="form-group">
+            <label>默认备份目录</label>
+            <input type="text" class="form-control" id="setting-backup-dir" style="max-width:520px;">
+            <small>本地备份文件的默认存储路径</small>
+        </div>
+        <div class="form-group">
+            <label>日志保留天数</label>
+            <input type="number" class="form-control" id="setting-log-retention" value="30" style="max-width:240px;">
+            <small>超过天数的备份记录将自动清理（0 = 不清理）</small>
+        </div>
+        <button type="button" class="btn btn-primary" id="btn-save-settings"><i class="bi bi-check-lg"></i> 保存设置</button>
+    </div>
+</div>
+{{end}}

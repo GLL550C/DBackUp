@@ -1,0 +1,23 @@
+{{define "history_content"}}
+<div class="card">
+    <div class="card-header">
+        <h3>备份历史记录</h3>
+        <div style="display:flex;gap:10px;align-items:center;">
+            <select class="form-select" id="filter-task" onchange="loadRecords()" style="width:200px;">
+                <option value="0">全部任务</option>
+            </select>
+            <button class="btn btn-danger btn-sm" onclick="batchDeleteRecords()" style="display:none;" id="btn-batch-delete"><i class="bi bi-trash"></i> 删除选中</button>
+        </div>
+    </div>
+    <div class="card-body">
+        <table class="table">
+            <thead>
+                <tr><th style="width:40px;"><input type="checkbox" id="select-all" onchange="toggleSelectAll()"></th><th>任务</th><th>数据库类型</th><th>文件名</th><th>大小</th><th>状态</th><th>开始时间</th><th>耗时</th><th>操作</th></tr>
+            </thead>
+            <tbody id="records-table"></tbody>
+        </table>
+        <div id="records-empty" class="empty-state">暂无备份记录</div>
+        <div id="records-pagination" class="pagination"></div>
+    </div>
+</div>
+{{end}}

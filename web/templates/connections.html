@@ -1,0 +1,81 @@
+{{define "connections_content"}}
+<div class="card">
+    <div class="card-header">
+        <h3>数据库连接列表</h3>
+        <div style="display:flex;gap:10px;">
+            <button class="btn btn-primary" onclick="showConnModal()"><i class="bi bi-plus-lg"></i> 添加连接</button>
+            <button class="btn btn-danger btn-sm" id="btn-batch-del-conn" style="display:none;" onclick="batchDeleteConns()"><i class="bi bi-trash"></i> 删除选中</button>
+        </div>
+    </div>
+    <div class="card-body">
+        <table class="table">
+            <thead>
+                <tr><th style="width:40px;"><input type="checkbox" id="select-all-conn" onchange="toggleSelectAllConn()"></th><th>名称</th><th>类型</th><th>主机</th><th>端口</th><th>创建时间</th><th>操作</th></tr>
+            </thead>
+            <tbody id="connections-table"></tbody>
+        </table>
+        <div id="connections-empty" class="empty-state">暂无连接，请添加一个数据库连接</div>
+    </div>
+</div>
+
+<!-- 连接弹窗 -->
+<div class="modal fade" id="connModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 id="connModalTitle">添加连接</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>连接名称 <span class="required">*</span></label>
+                    <input type="text" class="form-control" id="conn-name" placeholder="例如：生产环境MySQL">
+                </div>
+                <div class="form-group">
+                    <label>数据库类型 <span class="required">*</span></label>
+                    <select class="form-select select-glow" id="conn-type">
+                        <option value="">请选择...</option>
+                        <option value="mysql">MySQL</option>
+                        <option value="postgresql">PostgreSQL</option>
+                    </select>
+                </div>
+                <div class="form-row">
+                    <div class="form-group flex-3">
+                        <label>主机地址 <span class="required">*</span></label>
+                        <input type="text" class="form-control" id="conn-host" placeholder="127.0.0.1">
+                    </div>
+                    <div class="form-group flex-1">
+                        <label>端口</label>
+                        <input type="number" class="form-control" id="conn-port" value="3306">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group flex-1">
+                        <label>用户名 <span class="required">*</span></label>
+                        <input type="text" class="form-control" id="conn-user" placeholder="root">
+                    </div>
+                    <div class="form-group flex-1">
+                        <label>密码</label>
+                        <input type="password" class="form-control" id="conn-pass" placeholder="请输入密码">
+                    </div>
+                </div>
+                <input type="hidden" id="conn-id">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-outline" id="btn-test-conn"><i class="bi bi-lightning-charge"></i> 测试连接</button>
+                <button type="button" class="btn btn-primary" id="btn-save-conn">保存</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 测试结果弹窗 -->
+<div class="modal fade" id="testResultModal" tabindex="-1">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-body text-center p-4" id="test-result-body"></div>
+        </div>
+    </div>
+</div>
+{{end}}

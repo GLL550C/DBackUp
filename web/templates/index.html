@@ -1,0 +1,56 @@
+{{define "dashboard_content"}}
+<div class="stats-grid">
+    <div class="stat-card">
+        <div class="stat-icon"><i class="bi bi-clock-history"></i></div>
+        <div class="stat-info">
+            <span class="stat-value" id="stat-total-tasks">0</span>
+            <span class="stat-label">备份任务</span>
+        </div>
+    </div>
+    <div class="stat-card success">
+        <div class="stat-icon"><i class="bi bi-check-circle"></i></div>
+        <div class="stat-info">
+            <span class="stat-value" id="stat-success">0</span>
+            <span class="stat-label">成功</span>
+        </div>
+    </div>
+    <div class="stat-card danger">
+        <div class="stat-icon"><i class="bi bi-x-circle"></i></div>
+        <div class="stat-info">
+            <span class="stat-value" id="stat-failed">0</span>
+            <span class="stat-label">失败</span>
+        </div>
+    </div>
+    <div class="stat-card accent">
+        <div class="stat-icon"><i class="bi bi-pie-chart"></i></div>
+        <div class="stat-info">
+            <span class="stat-value" id="stat-rate">0%</span>
+            <span class="stat-label">成功率</span>
+        </div>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-header">
+        <h3>最近备份</h3>
+        <span class="card-subtitle">最近一次：<strong id="stat-last-backup">-</strong></span>
+    </div>
+    <div class="card-body">
+        <table class="table">
+            <thead>
+                <tr><th>任务名称</th><th>数据库</th><th>文件名</th><th>大小</th><th>状态</th><th>时间</th><th>耗时</th></tr>
+            </thead>
+            <tbody id="recent-table"></tbody>
+        </table>
+        <div id="recent-empty" class="empty-state">暂无备份记录</div>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-header"><h3>快速操作</h3></div>
+    <div class="card-body" style="display:flex;gap:12px;">
+        <a href="/connections" class="btn btn-primary"><i class="bi bi-plus-lg"></i> 添加数据库连接</a>
+        <a href="/tasks" class="btn btn-outline"><i class="bi bi-plus-lg"></i> 新建备份任务</a>
+    </div>
+</div>
+{{end}}

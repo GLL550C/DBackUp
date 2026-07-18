@@ -1,0 +1,10 @@
+server:
+    port: 8080
+backup:
+    default_dir: /opt/gll
+logging:
+    retention_days: 30
+auth:
+    password: admin
+security:
+    encrypt_key: b643ac7fbb955df83f299c3489ae845d88ad09287bd2326b98b6cd3a5560a4fd
