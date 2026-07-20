@@ -156,11 +156,11 @@ make arm64
 ```
 
 编译产物：
-- `db-backup-tool` — macOS / Linux（当前平台）
-- `db-backup-tool.exe` — Windows
-- `db-backup-tool-linux` — Linux x86_64
-- `db-backup-tool-linux-arm64` — Linux ARM64
-- `db-backup-tool-mac` — macOS x86_64
+- `services` — macOS / Linux（当前平台）
+- `services.exe` — Windows
+- `services-linux` — Linux x86_64
+- `services-linux-arm64` — Linux ARM64
+- `services-mac` — macOS x86_64
 
 ### 运行
 
@@ -171,7 +171,7 @@ make run
 go run .
 
 # 使用编译好的二进制
-./db-backup-tool-linux
+./services-linux
 ```
 
 首次运行会自动：

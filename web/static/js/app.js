@@ -393,18 +393,9 @@ function loadTasks() {
                 var sched = t.cron_expr || '<span style="color:#94a3b8;">手动触发</span>';
                 var ret = t.max_backups > 0 ? '保留 ' + t.max_backups + ' 份' : '不限制';
                 var st = t.enabled ? '<span class="badge badge-success">已启用</span>' : '<span class="badge badge-muted">已禁用</span>';
-                var modeLabel = {'local':'仅本地', 'remote':'仅远程', 'both':'本地+远程'};
+                var modeLabel = {'local':'本地备份', 'remote':'远程备份SFTP', 'both':'本地备份+远程备份SFTP'};
                 var mode = modeLabel[t.storage_type] || t.storage_type;
-                // Build storage detail line
-                var detail = '';
-                if (t.storage_type === 'local') {
-                    detail = t.local_path || '默认目录';
-                } else if (t.storage_type === 'remote') {
-                    detail = (t.remote_host || '') + ':' + (t.remote_path || '');
-                } else if (t.storage_type === 'both') {
-                    detail = '本地 + ' + (t.remote_host || '远程');
-                }
-                tb.innerHTML += '<tr><td><input type="checkbox" class="task-check" value="' + t.id + '" onchange="updateTaskBatchBtn()"></td><td><strong>' + esc(t.name) + '</strong></td><td><span>' + mode + '</span><br><small style="color:#94a3b8;">' + esc(detail) + '</small></td><td>' + sched + '</td><td>' + ret + '</td><td>' + st + '</td><td><button class="btn btn-sm btn-success" onclick="runBackup(' + t.id + ')" title="立即执行"><i class="bi bi-play-fill"></i></button> <button class="btn btn-sm btn-outline" onclick="editTask(' + t.id + ')" title="编辑"><i class="bi bi-pencil"></i></button> <button class="btn btn-sm btn-danger" onclick="deleteTask(' + t.id + ')" title="删除"><i class="bi bi-trash"></i></button></td></tr>';
+                tb.innerHTML += '<tr><td><input type="checkbox" class="task-check" value="' + t.id + '" onchange="updateTaskBatchBtn()"></td><td><strong>' + esc(t.name) + '</strong></td><td>' + mode + '</td><td>' + sched + '</td><td>' + ret + '</td><td>' + st + '</td><td><button class="btn btn-sm btn-success" onclick="runBackup(' + t.id + ')" title="立即执行"><i class="bi bi-play-fill"></i></button> <button class="btn btn-sm btn-outline" onclick="editTask(' + t.id + ')" title="编辑"><i class="bi bi-pencil"></i></button> <button class="btn btn-sm btn-danger" onclick="deleteTask(' + t.id + ')" title="删除"><i class="bi bi-trash"></i></button></td></tr>';
             });
         }
         updateTaskBatchBtn();

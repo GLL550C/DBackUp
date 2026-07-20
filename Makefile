@@ -1,6 +1,6 @@
 # DB Backup Tool - Makefile
 
-BINARY=db-backup-tool
+BINARY=services
 VERSION=$(shell git describe --tags --always 2>/dev/null || echo "dev")
 LDFLAGS=-s -w -X main.version=$(VERSION)
 
